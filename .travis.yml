@@ -1,26 +1,23 @@
 language: php
-
 php:
- - 5.6
- - 7.0
- - hhvm
- - nightly
-
+- 5.6
+- 7.0
+- hhvm
+- nightly
 script:
- - ./vendor/bin/phpunit --configuration=phpunit.travis.xml
-
+- ./vendor/bin/phpunit --configuration=phpunit.travis.xml
 matrix:
- allow_failures:
+  allow_failures:
   - php: nightly
 addons:
- code_climate:
-  repo_token:
-    secure: "GFM70GBUuDZ3KUwqgPwXTFdXm6c/4SWF/vNC99YpmENF6Lq6dFez9zeh+kVViFAzjgFIueW1TAsSnJSYCdS3Reka9jN8NXSExFAR0MW/zxLdfpaefZxxvTwy1QwFQO+WxSDTdcFFpJAvR5xVClz7Wnm/mLEhSqpKV1veBy1fxUTeoVd6StUYkFeJgWMzAQqMjQlrgpEISgbTidZIflVbkmZ46sTj/RhOfaSOPK/CMSRl0YNW58yngnM4aH/MmwnPj2oacDLAwqyaTJxD2VGTvYtrefQ+riB9nnukgNNFWwCFhrFtf4U4o6sAR1bdWVre4lWuyhiDc3eO9u8tMIvftf7mKAjYwEf8AwKQ8jXzRIUiAJSDu3hKzBDRINnIDGrlTlKkhKRVSFr9y8krfhHDUhehRoGSBk5FGRHZ78OYUY1SbLNyzM17CocfyvMkJCBmkkjKl62V8gkXzae/xbqZ0TSQn4JBPt+9AXf377XE22ZVeBwDiy+qT2NYG64gU/xzEhWUlegqd+8/xLvaDtvd+vjyOBhWGCrbYpUjj9OrmTfCCMbJa5Rew+sy9k/DTQiSj5RHeSkZqUJrcNJDKkyP/OftMMmj+L8GsYW3AmI4McWr97e1JD71RtoS72SyKqYvnguIHxB3lPFNikxZhY8ypd2EeiOHosgo1NAseE9Dtlc="
-
+  code_climate:
+    repo_token:
+      secure: EYVpI3dOi3R05gnxbDLtSybuf0NsLU2ahaAn2W1Y9XZ4aCzMOb/WR9pnBaCD+BKYMdGXU89xydDrY6qUARnzUu6txjXkv6e7+vRvswaQyWzKuA6MhbjOSd9VZYjrhsKt7ceF0/fKwTcnP+eMWuWNar0NN+cJ/N07YbjYU+NKjMqof+Zd9h5GimLzM2g/1ndkJGRac7EziQbgpUKj67SQ8MsCuYvnceQ1BDc2sZXZvvr0IPmS3mEddPZKE8Ga9CtW0V6ARA6D69yITz1gcbbQ6gsNrxt96bpeA5zGq+ZvvvqS7feoZNgYeVWk5OHU7PWCTHwVxZCyGO4y4ivV/8NqZ8QB7Zb0fl/wOJmodTnAv9A6ca/Pu+HnwxtcokcNcNHVUOKrkw8yRB16cSLZ/m5dg/Dptedn+0p0h3jQis8teRAefL3JToVCexznyFBiscnaiWjQe9Cr1FCbVuIrQNTSovoEbkUZD/XGdIW1ZAjiFqsUopPxqgvCzWdWUQ0yQtg+qPUJQbUhnX+BD8vUPyO4inQHXbj7LQVdxQTYyV31CnhK6kks/p5lpNjaNxD4SnOC5NmG5j2Oqfmu4VshCS0RtDarPyQ6c1skNN8nz2cE2ErP8vIaa4NOYvS74qXtRPx9wexruMckB3FBScpUVPV2bQZSUowee5O05eCq/Cn7XHk=
 before_script:
- - ./.travis.install.sh
-
+- ./.travis.install.sh
 after_script:
- - ./vendor/bin/test-reporter
- - wget https://scrutinizer-ci.com/ocular.phar
- - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
+- ./vendor/bin/test-reporter
+- wget https://scrutinizer-ci.com/ocular.phar
+- php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
+env:
+  global:
